@@ -50,7 +50,7 @@ const moveHorizontal = (element, amount) => {
 const moveCoin = function () {
 	const y = Math.floor(Math.random() * window.innerHeight)
 	const x = Math.floor(Math.random() * window.innerWidth)
-	coin.style.top = `${y}px`
+	coin.style.top = `${y}px` // should use .transform instead of left and top
 	coin.style.left = `${x}px`
 }
 moveCoin()
