@@ -48,7 +48,7 @@ const onInput = async event => {
         `
         movieOption.addEventListener('click', () => {
             dropdown.classList.remove('is-active')
-            input.value = movie.Title
+            input.value = movautocomplete funtion completeie.Title
             onMovieSelect(movie)
         })
         resultsWrapper.appendChild(movieOption)
@@ -64,12 +64,12 @@ document.addEventListener('click', event => {
 
 const onMovieSelect = async movie => {
         const response = await axios.get("http://www.omdbapi.com/", {
-        params: {
-            apikey: "53fdb133",
-            i: movie.imdbID
-        }
+            params: {
+                apikey: "53fdb133",
+                i: movie.imdbID }
+        })
         document.querySelector('#summary').innerHTML = movieTemplate(response.data)
-    })
+    }
 
     const movieTemplate = (movieDetail) => {
         return `
@@ -83,11 +83,29 @@ const onMovieSelect = async movie => {
                     <div class="content">
                         <h1>${movieDetail.Title}</h1>
                         <h4>${movieDetail.Genre}</h4>
-                        <p>${movieDetail.plot}</p>
+                        <p>${movieDetail.Plot}</p>
                     </div>
                 </div>
             </article>
-
+            <article class="notification is-primary">
+                <p class="title">${movieDetail.Awards}</p>
+                <p class="subtitle">Awards</p>
+            </article>
+            <article class="notification is-primary">
+                <p class="title">${movieDetail.BoxOffice}</p>
+                <p class="subtitle">BoxOffice</p>
+            </article>
+            <article class="notification is-primary">
+                <p class="title">${movieDetail.Metascore}</p>
+                <p class="subtitle">Metascore</p>
+            </article>
+            <article class="notification is-primary">
+                <p class="title">${movieDetail.imbdRating}</p>
+                <p class="subtitle">IMBD Rating</p>
+            </article>
+            <article class="notification is-primary">
+                <p class="title">${movieDetail.imdbVotes}</p>
+                <p class="subtitle">IMDB Votes</p>
+            </article>
         `
     }
-}
