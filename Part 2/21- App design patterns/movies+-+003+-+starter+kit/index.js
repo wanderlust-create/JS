@@ -48,7 +48,7 @@ const onInput = async event => {
         `
         movieOption.addEventListener('click', () => {
             dropdown.classList.remove('is-active')
-            input.value = movautocomplete funtion completeie.Title
+            input.value = movie.Title
             onMovieSelect(movie)
         })
         resultsWrapper.appendChild(movieOption)
